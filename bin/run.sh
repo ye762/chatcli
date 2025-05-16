@@ -1,9 +1,16 @@
 #!/bin/bash
 
-VENV_DIR="~/.chatcli"
+VENV_DIR="chatcli"
 
 # Activate the virtual environment
 source "$VENV_DIR/bin/activate"
+
+# Read oapi key from secret file
+function read_oapi_key() {
+    cat ./secret/chatcli-0
+}
+
+export OPENAI_API_KEY=$(read_oapi_key)
 
 # Check if OPENAI_API_KEY is set
 if [ -z "$OPENAI_API_KEY" ]; then
@@ -21,4 +28,4 @@ if [ -z "$OPENAI_API_KEY" ]; then
 fi
 
 # Run the ChatGPT CLI script
-python chatgpt_cli.py
+python chatcli.py
