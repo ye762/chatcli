@@ -1,0 +1,4 @@
+# Ignore everything inside the secret directory
+secret/*
+# Optional: But keep the directory itself (if needed for structure)
+!secret/.gitkeep
